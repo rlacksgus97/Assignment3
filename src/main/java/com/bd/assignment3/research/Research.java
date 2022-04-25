@@ -3,18 +3,17 @@ package com.bd.assignment3.research;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
+@Table(indexes = @Index(name = "num_index", columnList = "num"))
 public class Research {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+//    @Id
     @JsonProperty("과제번호")
     private String num;
 
@@ -41,4 +40,16 @@ public class Research {
 
     @JsonProperty("연구범위")
     private String range;
+
+    public void update(Research research) {
+        this.num = research.getNum();
+        this.title = research.getTitle();
+        this.department = research.getDepartment();
+        this.organization = research.getOrganization();
+        this.participantsNum = research.getParticipantsNum();
+        this.term = research.getTerm();
+        this.type = research.getType();
+        this.stage = research.getStage();
+        this.range = research.getRange();
+    }
 }
