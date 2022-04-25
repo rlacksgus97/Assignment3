@@ -7,13 +7,13 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(indexes = @Index(name = "num_index", columnList = "num"))
+//@Table(indexes = @Index(name = "num_index", columnList = "num"))
 public class Research {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+//    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id;
 
-//    @Id
+    @Id
     @JsonProperty("과제번호")
     private String num;
 
