@@ -2,13 +2,14 @@ package com.bd.assignment3.research;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 //@Table(indexes = @Index(name = "num_index", columnList = "num"))
-public class Research {
+public class Research implements Persistable<String> {
 
 //    @Id @GeneratedValue(strategy = GenerationType.AUTO)
 //    private Long id;
@@ -51,5 +52,15 @@ public class Research {
         this.type = research.getType();
         this.stage = research.getStage();
         this.range = research.getRange();
+    }
+
+    @Override
+    public String getId() {
+        return this.num;
+    }
+
+    @Override
+    public boolean isNew() {
+        return true;
     }
 }
