@@ -17,6 +17,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 //@SQLInsert(sql="INSERT INTO research(num, title, department, organization, participants_num, term, type, stage, range) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE num = values(num), title = values(title), department = values(department), organization = values(organization), participants_num = values(participants_num), term = values(term), type = values(type), stage = values(stage), range = values(range)" )
 //@Table(indexes = @Index(name = "num_index", columnList = "num"))
+//public class Research implements Persistable<String> {
+
 public class Research {
 
 //    @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -70,4 +72,14 @@ public class Research {
         this.stage = research.getStage();
         this.range = research.getRange();
     }
+
+//    @Override
+//    public String getId() {
+//        return this.num;
+//    }
+//
+//    @Override
+//    public boolean isNew() {
+//        return true;
+//    }
 }
